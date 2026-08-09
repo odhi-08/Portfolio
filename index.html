@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Odrita Haque Odhi — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #F6F1E3;
+    --card: #FFFDF8;
+    --ink: #2B2818;
+    --ink-muted: #756F58;
+    --olive: #8C8250;
+    --olive-dark: #5C572F;
+    --tan-1: #E4DAB8;
+    --tan-2: #CFC290;
+    --border: #E6DFC7;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: .001ms !important; transition-duration: .001ms !important; }
+  }
+
+  body{
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+  ::selection{ background: var(--olive); color: #fff; }
+
+  .wrap{ max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+  /* ---------- Top nav ---------- */
+  nav.topbar{
+    position: sticky; top:0; z-index: 40;
+    background: rgba(246,241,227,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav.topbar .wrap{
+    display:flex; align-items:center; justify-content: space-between;
+    height: 68px;
+  }
+  nav.topbar .logo{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 19px;
+  }
+  nav.topbar .logo span{ color: var(--olive); }
+  nav.topbar .links{ display:flex; gap: 30px; }
+  nav.topbar .links a{
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    transition: color .15s ease;
+  }
+  nav.topbar .links a:hover{ color: var(--olive-dark); }
+  .nav-toggle{ display:none; background:none; border:none; font-size:22px; color:var(--ink); cursor:pointer; }
+
+  /* ---------- Hero / poster card ---------- */
+  header.hero{ padding: 56px 0 0; }
+  .hero-card{
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    overflow: hidden;
+    padding: 64px 64px 0;
+  }
+  .hero-decor{ position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+  .hero-decor .c{ position:absolute; border-radius:50%; }
+  .hero-decor .c1{ width:340px; height:340px; background: var(--tan-1); opacity:.55; top:-140px; left:-110px; }
+  .hero-decor .c2{ width:180px; height:180px; border:1.5px solid var(--tan-2); top:60px; left:200px; opacity:.6; }
+  .hero-decor .c3{ width:520px; height:520px; background: var(--tan-1); opacity:.4; top:-230px; right:-260px; }
+  .hero-decor .c4{ width:120px; height:120px; border:1.5px solid var(--olive); opacity:.35; bottom:40px; right:120px; }
+
+  .hero-inner{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .eyebrow{
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--olive-dark);
+    margin-bottom: 14px;
+  }
+
+  h1.name{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(38px, 5vw, 56px);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+
+  .role-line{
+    margin-top: 14px;
+    font-size: 16px;
+    color: var(--ink-muted);
+    max-width: 40ch;
+  }
+
+  .contact-block{ margin-top: 34px; }
+  .contact-block h3{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--olive-dark);
+    margin-bottom: 10px;
+  }
+  .contact-block ul{ list-style:none; display:flex; flex-direction:column; gap: 6px; }
+  .contact-block li{ font-size: 13.5px; color: var(--ink); }
+  .contact-block li span{ color: var(--ink-muted); margin-right: 6px; }
+  .contact-block li a:hover{ color: var(--olive-dark); text-decoration: underline; }
+
+  .hero-photo{
+    position: relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height: 100%;
+    min-height: 320px;
+  }
+  .hero-photo .ring{
+    position:absolute;
+    border-radius:50%;
+    border: 1.5px solid var(--tan-2);
+  }
+  .hero-photo .ring1{ width: 300px; height: 300px; }
+  .hero-photo .ring2{ width: 250px; height: 250px; border-color: var(--olive); opacity: .5; }
+  .hero-photo img{
+    position: relative;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    box-shadow: 0 18px 40px -12px rgba(92,87,47,0.28);
+  }
+
+  .about-strip{
+    position: relative;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+    padding: 32px 0 44px;
+    max-width: 66ch;
+  }
+  .about-strip h3{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--olive-dark);
+    margin-bottom: 10px;
+  }
+  .about-strip p{ color: var(--ink-muted); font-size: 15px; }
+
+  /* ---------- Shared section styling ---------- */
+  section{ padding: 84px 0; }
+  .section-head{ margin-bottom: 40px; }
+  .section-head .eyebrow{ margin-bottom: 8px; }
+  .section-head h2{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 32px;
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- Education ---------- */
+  .edu-row{
+    display:grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    padding: 26px 0;
+    border-top: 1px solid var(--border);
+  }
+  .edu-row:first-of-type{ border-top:none; }
+  .edu-date{
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--olive-dark);
+    font-size: 15px;
+    padding-top: 2px;
+  }
+  .edu-title{ font-size: 17px; font-weight: 600; }
+  .edu-org{ color: var(--olive-dark); font-size: 14px; margin-top: 3px; }
+  .edu-meta{ color: var(--ink-muted); font-size: 14px; margin-top: 6px; }
+
+  /* ---------- Skills ---------- */
+  .skills-grid{ display:flex; flex-wrap:wrap; gap: 12px; }
+  .skill-pill{
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .skill-pill.muted{ color: var(--ink-muted); border-style: dashed; }
+
+  /* ---------- Projects ---------- */
+  .project-card{
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 18px;
+  }
+  .project-top{
+    display:flex; align-items:baseline; justify-content:space-between; gap: 16px; flex-wrap: wrap;
+  }
+  .project-name{ font-family: var(--font-display); font-weight: 600; font-size: 20px; }
+  .project-tags{ display:flex; gap:8px; }
+  .tag{
+    font-size: 11.5px;
+    color: var(--olive-dark);
+    background: var(--tan-1);
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+  .project-desc{ color: var(--ink-muted); font-size: 14.5px; margin-top: 12px; max-width: 62ch; }
+  .project-link{
+    display:inline-block;
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--olive-dark);
+    border-bottom: 1px solid var(--olive);
+    padding-bottom: 2px;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-card{
+    background: var(--olive-dark);
+    color: #F6F1E3;
+    border-radius: 28px;
+    padding: 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-card::before{
+    content:'';
+    position:absolute; width: 380px; height: 380px;
+    border-radius:50%; background: rgba(246,241,227,0.06);
+    top:-160px; right:-140px;
+  }
+  .contact-card h2{
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(28px, 4vw, 38px);
+    max-width: 18ch;
+    margin: 0 auto 16px;
+    position: relative;
+  }
+  .contact-card p{
+    color: #E4DAB8;
+    max-width: 52ch;
+    margin: 0 auto;
+    font-size: 15px;
+    position: relative;
+  }
+  .contact-email{
+    display:inline-block;
+    margin-top: 32px;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 24px;
+    color: #fff;
+    border-bottom: 2px solid #E4DAB8;
+    padding-bottom: 4px;
+    position: relative;
+  }
+  .contact-meta{
+    margin-top: 36px;
+    display:flex; justify-content:center; gap: 26px; flex-wrap: wrap;
+    position: relative;
+  }
+  .contact-meta a{
+    font-size: 13.5px;
+    color: #E4DAB8;
+    transition: color .15s ease;
+  }
+  .contact-meta a:hover{ color: #fff; }
+
+  footer.site-footer{
+    text-align:center;
+    padding: 30px 0 50px;
+    font-size: 12.5px;
+    color: var(--ink-muted);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 780px){
+    .wrap{ padding: 0 20px; }
+    nav.topbar .links{
+      position: absolute; top: 68px; left:0; right:0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 16px 20px 22px;
+      gap: 14px;
+      display: none;
+    }
+    nav.topbar .links.open{ display:flex; }
+    .nav-toggle{ display:block; }
+
+    .hero-card{ padding: 40px 24px 0; border-radius: 20px; }
+    .hero-inner{ grid-template-columns: 1fr; text-align:center; }
+    .hero-photo{ order: -1; min-height: auto; margin-bottom: 8px; }
+    .hero-photo .ring1{ width:220px; height:220px; }
+    .hero-photo .ring2{ width:180px; height:180px; }
+    .hero-photo img{ width: 160px; height: 160px; }
+    .contact-block{ text-align:left; }
+    .about-strip{ max-width: 100%; }
+
+    section{ padding: 56px 0; }
+    .edu-row{ grid-template-columns: 1fr; gap: 6px; }
+    .contact-card{ padding: 44px 26px; border-radius: 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <nav class="topbar">
+    <div class="wrap">
+      <div class="logo">Odrita<span>.</span></div>
+      <div class="links" id="nav-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#work">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="hero" id="about">
+    <div class="wrap">
+      <div class="hero-card">
+        <div class="hero-decor">
+          <span class="c c1"></span>
+          <span class="c c2"></span>
+          <span class="c c3"></span>
+          <span class="c c4"></span>
+        </div>
+
+        <div class="hero-inner">
+          <div class="hero-text">
+            <div class="eyebrow">Portfolio</div>
+            <h1 class="name">Odrita Haque<br>Odhi</h1>
+            <p class="role-line">Computer Science &amp; Engineering student with a growing interest in machine learning and research.</p>
+
+            <div class="contact-block">
+              <h3>Contact Information</h3>
+              <ul>
+                <li><span>Email:</span><a href="mailto:odhihaque@gmail.com">odhihaque@gmail.com</a></li>
+                <li><span>GitHub:</span><a href="https://github.com/odhi-08" target="_blank" rel="noopener">github.com/odhi-08</a></li>
+                <li><span>LinkedIn:</span><a href="https://linkedin.com/in/odrita-haque-odhi/" target="_blank" rel="noopener">linkedin.com/in/odrita-haque-odhi</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="hero-photo">
+            <span class="ring ring1"></span>
+            <span class="ring ring2"></span>
+            <img src="profile.png" alt="Odrita Haque Odhi">
+          </div>
+        </div>
+
+        <div class="about-strip">
+          <h3>About Me</h3>
+          <p>I'm an undergraduate student at IUBAT with a strong interest in technology, machine learning, and research. I'm passionate about developing practical solutions through programming and continuously improving my skills. My goal is to pursue higher studies and build a career as a researcher or lecturer, contributing to innovation and education.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="education">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Academic background</div>
+          <h2>Education</h2>
+        </div>
+
+        <div class="edu-row">
+          <div class="edu-date">2023 — 2027</div>
+          <div>
+            <div class="edu-title">BSc in Computer Science &amp; Engineering</div>
+            <div class="edu-org">International University of Business Agriculture and Technology</div>
+            <div class="edu-meta">SGPA 3.92 · CGPA 3.84</div>
+          </div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-date">2022</div>
+          <div>
+            <div class="edu-title">HSC</div>
+            <div class="edu-org">Brahmanbaria Govt. College</div>
+            <div class="edu-meta">GPA 5.00</div>
+          </div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-date">2020</div>
+          <div>
+            <div class="edu-title">SSC</div>
+            <div class="edu-org">Sabera Sobhan Govt. Girls' High School</div>
+            <div class="edu-meta">GPA 5.00</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Toolkit</div>
+          <h2>Skills</h2>
+        </div>
+        <div class="skills-grid">
+          <span class="skill-pill">C</span>
+          <span class="skill-pill">C++</span>
+          <span class="skill-pill">C#</span>
+          <span class="skill-pill muted">Learning Python</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">Selected work</div>
+          <h2>Projects</h2>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-name">Student Database Management System</div>
+            <div class="project-tags"><span class="tag">C++</span></div>
+          </div>
+          <p class="project-desc">A console-based system for managing student records — add, search, update, and delete student data with file handling for persistent storage.</p>
+          <a class="project-link" href="https://github.com/odhi-08/Student-Database-Management-System" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-card">
+          <h2>Let's build something together.</h2>
+          <p>I'm open to internship opportunities, research collaborations, and meaningful tech projects. Feel free to reach out if you'd like to discuss ideas or just connect.</p>
+          <a class="contact-email" href="mailto:odhihaque@gmail.com">odhihaque@gmail.com</a>
+          <div class="contact-meta">
+            <a href="https://github.com/odhi-08" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://linkedin.com/in/odrita-haque-odhi/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://orcid.org/0009-0001-4426-1697" target="_blank" rel="noopener">ORCID ↗</a>
+            <a href="https://www.researchgate.net/profile/Odrita-Odhi" target="_blank" rel="noopener">ResearchGate ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    © 2026 Odrita Haque Odhi
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const links = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => links.classList.toggle('open'));
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  </script>
+
+</body>
+</html>
